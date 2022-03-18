@@ -1,0 +1,272 @@
+{
+	"info": {
+		"_postman_id": "e64db978-6511-4c5f-a46c-c59c2ad750ac",
+		"name": "Automatizacion API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/albums",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if (data.msgResultado !== \"Prueba_exitosa\"){\r",
+							"   tests[\"Exitoso - respondio 200\"] = responseCode.code === 200;\r",
+							"}else{\r",
+							"    tests[\"Fallido - respondio AQUI 200\"] = responseCode.code === 200;\r",
+							"    tests[\"Mensaje de error es correcto\"] = responseBody.has(data.msgResultado);\r",
+							"};\r",
+							"pm.test(\"El tiempo de respuesta es menor que 80ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(80);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/albums/?id={{id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"albums",
+						""
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "{{id}}",
+							"description": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/posts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if (data.msgResultado !== \"Prueba_exitosa\"){\r",
+							"   tests[\"Exitoso - respondio 200\"] = responseCode.code === 200;\r",
+							"}else{\r",
+							"    tests[\"Fallido - respondio AQUI 200\"] = responseCode.code === 200;\r",
+							"    tests[\"Mensaje de error es correcto\"] = responseBody.has(data.msgResultado);\r",
+							"};\r",
+							"pm.test(\"El tiempo de respuesta es menor que 80ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(80);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/posts?id=5",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/comments",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//asignación id\r",
+							"pm.collectionVariables.get(\"id\");\r",
+							"postman.clearGlobalVariable(\"id\");\r",
+							"if (data.id !== \"null\" & data.id !== null){\r",
+							"    var p_id = '\\\"' + data.id + '\\\"';\r",
+							"    postman.setGlobalVariable(\"id\", p_id);\r",
+							"}else{\r",
+							"    postman.setGlobalVariable(\"id\", data.id);\r",
+							"}\r",
+							"\r",
+							"//asignación name\r",
+							"postman.clearGlobalVariable(\"name\");\r",
+							"if (data.name !== \"null\" & data.name !== null){\r",
+							"    var p_name = '\\\"' + data.name + '\\\"'; //p de variable provisoria\r",
+							"    postman.setGlobalVariable(\"name\", p_name);\r",
+							"}else{\r",
+							"    postman.setGlobalVariable(\"name\", data.name);\r",
+							"}\r",
+							"\r",
+							"//asignación username\r",
+							"postman.clearGlobalVariable(\"username\");\r",
+							"if (data.username !== \"null\" & data.username !== null){\r",
+							"    var p_username = '\\\"' + data.username + '\\\"'; //p de variable provisoria\r",
+							"    postman.setGlobalVariable(\"username\", p_username);\r",
+							"}else{\r",
+							"    postman.setGlobalVariable(\"username\", data.username);\r",
+							"}\r",
+							"\r",
+							"//asignación email\r",
+							"postman.clearGlobalVariable(\"email\");\r",
+							"if (data.email !== \"null\" & data.email !== null){\r",
+							"    var p_email = '\\\"' + data.email + '\\\"'; //p de variable provisoria\r",
+							"    postman.setGlobalVariable(\"email\", p_email);\r",
+							"}else{\r",
+							"    postman.setGlobalVariable(\"email\", data.email);\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if (data.msgResultado !== \"Prueba_exitosa\"){\r",
+							"   tests[\"Exitoso - respondio 200\"] = responseCode.code === 200;\r",
+							"}else{\r",
+							"    tests[\"Fallido - respondio AQUI 200\"] = responseCode.code === 200;\r",
+							"    tests[\"Mensaje de error es correcto\"] = responseBody.has(data.msgResultado);\r",
+							"};\r",
+							"pm.test(\"El tiempo de respuesta es menor que 80ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(80);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"followOriginalHttpMethod": false,
+				"followAuthorizationHeader": true,
+				"disableUrlEncoding": false
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/comments",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"comments"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "{{id}}",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if (data.msgResultado !== \"Prueba_exitosa\"){\r",
+							"   tests[\"Exitoso - respondio 200\"] = responseCode.code === 200;\r",
+							"}else{\r",
+							"    tests[\"Fallido - respondio AQUI 200\"] = responseCode.code === 200;\r",
+							"    tests[\"Mensaje de error es correcto\"] = responseBody.has(data.msgResultado);\r",
+							"};\r",
+							"pm.test(\"El tiempo de respuesta es menor que 80ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(80);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/users",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "{{id}}",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "{{name}}",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
