@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "e64db978-6511-4c5f-a46c-c59c2ad750ac",
+		"_postman_id": "73a844aa-750d-42f6-88a3-3a348df1d1eb",
 		"name": "Automatizacion API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -12,14 +12,32 @@
 					"listen": "test",
 					"script": {
 						"exec": [
+							"//validación de Estado 200\r",
 							"if (data.msgResultado !== \"Prueba_exitosa\"){\r",
-							"   tests[\"Exitoso - respondio 200\"] = responseCode.code === 200;\r",
+							"   tests[\"Respondio 200\"] = responseCode.code === 200;\r",
 							"}else{\r",
-							"    tests[\"Fallido - respondio AQUI 200\"] = responseCode.code === 200;\r",
+							"    tests[\"Fallido - respondio 200\"] = responseCode.code === 200;\r",
 							"    tests[\"Mensaje de error es correcto\"] = responseBody.has(data.msgResultado);\r",
 							"};\r",
-							"pm.test(\"El tiempo de respuesta es menor que 80ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(80);\r",
+							"//tiempo de respuesta\r",
+							"pm.test(\"El tiempo de respuesta es menor que 100ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(100);\r",
+							"});\r",
+							"//Validación de Json \r",
+							"pm.test(\"Validación de JSON\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"//Existe Body\r",
+							"pm.test(\"Existe el body\", function () { \r",
+							"      pm.response.to.be.withBody;\r",
+							"});\r",
+							"//Validación Content-Type\r",
+							"pm.test(\"tipo de contenido correcto\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"//Validación de variables\r",
+							"pm.test(\"Validación de variables\", function () {\r",
+							"pm.collectionVariables.set(\"id\", \"username\");\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -68,14 +86,32 @@
 					"listen": "test",
 					"script": {
 						"exec": [
+							"//validación de Estado 200\r",
 							"if (data.msgResultado !== \"Prueba_exitosa\"){\r",
-							"   tests[\"Exitoso - respondio 200\"] = responseCode.code === 200;\r",
+							"   tests[\"Respondio 200\"] = responseCode.code === 200;\r",
 							"}else{\r",
-							"    tests[\"Fallido - respondio AQUI 200\"] = responseCode.code === 200;\r",
+							"    tests[\"Fallido - respondio 200\"] = responseCode.code === 200;\r",
 							"    tests[\"Mensaje de error es correcto\"] = responseBody.has(data.msgResultado);\r",
 							"};\r",
-							"pm.test(\"El tiempo de respuesta es menor que 80ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(80);\r",
+							"//tiempo de respuesta\r",
+							"pm.test(\"El tiempo de respuesta es menor que 100ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(100);\r",
+							"});\r",
+							"//Validación de Json \r",
+							"pm.test(\"Validación de JSON\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"//Existe Body\r",
+							"pm.test(\"Existe el body\", function () { \r",
+							"      pm.response.to.be.withBody;\r",
+							"});\r",
+							"//Validación Content-Type\r",
+							"pm.test(\"tipo de contenido correcto\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"//Validación de variables\r",
+							"pm.test(\"Validación de variables\", function () {\r",
+							"pm.collectionVariables.set(\"id\", \"username\");\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -154,14 +190,32 @@
 					"listen": "test",
 					"script": {
 						"exec": [
+							"//validación de Estado 200\r",
 							"if (data.msgResultado !== \"Prueba_exitosa\"){\r",
-							"   tests[\"Exitoso - respondio 200\"] = responseCode.code === 200;\r",
+							"   tests[\"Respondio 200\"] = responseCode.code === 200;\r",
 							"}else{\r",
-							"    tests[\"Fallido - respondio AQUI 200\"] = responseCode.code === 200;\r",
+							"    tests[\"Fallido - respondio 200\"] = responseCode.code === 200;\r",
 							"    tests[\"Mensaje de error es correcto\"] = responseBody.has(data.msgResultado);\r",
 							"};\r",
-							"pm.test(\"El tiempo de respuesta es menor que 80ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(80);\r",
+							"//tiempo de respuesta\r",
+							"pm.test(\"El tiempo de respuesta es menor que 100ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(100);\r",
+							"});\r",
+							"//Validación de Json \r",
+							"pm.test(\"Validación de JSON\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"//Existe Body\r",
+							"pm.test(\"Existe el body\", function () { \r",
+							"      pm.response.to.be.withBody;\r",
+							"});\r",
+							"//Validación Content-Type\r",
+							"pm.test(\"tipo de contenido correcto\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"//Validación de variables\r",
+							"pm.test(\"Validación de variables\", function () {\r",
+							"pm.collectionVariables.set(\"id\", \"username\");\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -215,14 +269,32 @@
 					"listen": "test",
 					"script": {
 						"exec": [
+							"//validación de Estado 200\r",
 							"if (data.msgResultado !== \"Prueba_exitosa\"){\r",
-							"   tests[\"Exitoso - respondio 200\"] = responseCode.code === 200;\r",
+							"   tests[\"Respondio 200\"] = responseCode.code === 200;\r",
 							"}else{\r",
-							"    tests[\"Fallido - respondio AQUI 200\"] = responseCode.code === 200;\r",
+							"    tests[\"Fallido - respondio 200\"] = responseCode.code === 200;\r",
 							"    tests[\"Mensaje de error es correcto\"] = responseBody.has(data.msgResultado);\r",
 							"};\r",
-							"pm.test(\"El tiempo de respuesta es menor que 80ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(80);\r",
+							"//tiempo de respuesta\r",
+							"pm.test(\"El tiempo de respuesta es menor que 100ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(100);\r",
+							"});\r",
+							"//Validación de Json \r",
+							"pm.test(\"Validación de JSON\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"//Existe Body\r",
+							"pm.test(\"Existe el body\", function () { \r",
+							"      pm.response.to.be.withBody;\r",
+							"});\r",
+							"//Validación Content-Type\r",
+							"pm.test(\"tipo de contenido correcto\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"//Validación de variables\r",
+							"pm.test(\"Validación de variables\", function () {\r",
+							"pm.collectionVariables.set(\"id\", \"username\");\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -267,6 +339,12 @@
 				}
 			},
 			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": ""
 		}
 	]
 }
