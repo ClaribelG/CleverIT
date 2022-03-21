@@ -48,6 +48,16 @@
 				"disableBodyPruning": true
 			},
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{id}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"body": {
@@ -71,8 +81,7 @@
 					"query": [
 						{
 							"key": "id",
-							"value": "{{id}}",
-							"description": "5"
+							"value": "{{id}}"
 						}
 					]
 				}
@@ -119,10 +128,20 @@
 				}
 			],
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{id}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/posts?id=5",
+					"raw": "{{url}}/posts?id={{id}}",
 					"host": [
 						"{{url}}"
 					],
@@ -132,7 +151,7 @@
 					"query": [
 						{
 							"key": "id",
-							"value": "5"
+							"value": "{{id}}"
 						}
 					]
 				}
@@ -230,7 +249,14 @@
 			},
 			"request": {
 				"auth": {
-					"type": "noauth"
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{id}}",
+							"type": "string"
+						}
+					]
 				},
 				"method": "GET",
 				"header": [],
@@ -305,6 +331,16 @@
 				"disableBodyPruning": true
 			},
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{id}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"body": {
@@ -317,7 +353,7 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}/users",
+					"raw": "{{url}}/users?name={{name}}",
 					"host": [
 						"{{url}}"
 					],
@@ -332,8 +368,7 @@
 						},
 						{
 							"key": "name",
-							"value": "{{name}}",
-							"disabled": true
+							"value": "{{name}}"
 						}
 					]
 				}
