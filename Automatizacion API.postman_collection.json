@@ -13,7 +13,7 @@
 					"script": {
 						"exec": [
 							"//validación de Estado 200\r",
-							"if (data.msgResultado !== \"Prueba_exitosa\"){\r",
+							"if (data.msgResultado == \"Prueba_exitosa\"){\r",
 							"   tests[\"Respondio 200\"] = responseCode.code === 200;\r",
 							"}else{\r",
 							"    tests[\"Fallido - respondio 200\"] = responseCode.code === 200;\r",
@@ -96,7 +96,7 @@
 					"script": {
 						"exec": [
 							"//validación de Estado 200\r",
-							"if (data.msgResultado !== \"Prueba_exitosa\"){\r",
+							"if (data.msgResultado == \"Prueba_exitosa\"){\r",
 							"   tests[\"Respondio 200\"] = responseCode.code === 200;\r",
 							"}else{\r",
 							"    tests[\"Fallido - respondio 200\"] = responseCode.code === 200;\r",
@@ -210,7 +210,7 @@
 					"script": {
 						"exec": [
 							"//validación de Estado 200\r",
-							"if (data.msgResultado !== \"Prueba_exitosa\"){\r",
+							"if (data.msgResultado == \"Prueba_exitosa\"){\r",
 							"   tests[\"Respondio 200\"] = responseCode.code === 200;\r",
 							"}else{\r",
 							"    tests[\"Fallido - respondio 200\"] = responseCode.code === 200;\r",
@@ -296,7 +296,7 @@
 					"script": {
 						"exec": [
 							"//validación de Estado 200\r",
-							"if (data.msgResultado !== \"Prueba_exitosa\"){\r",
+							"if (data.msgResultado == \"Prueba_exitosa\"){\r",
 							"   tests[\"Respondio 200\"] = responseCode.code === 200;\r",
 							"}else{\r",
 							"    tests[\"Fallido - respondio 200\"] = responseCode.code === 200;\r",
